@@ -1,6 +1,16 @@
-#include "Account.h"
 #include <iostream>
+#include <typeinfo>
 
+class TestClass {
+
+};
+class Child : public TestClass {
+
+};
 int main(){
-	Account acc("Bob", 1000);
+	int i{};
+	Child c;
+	TestClass *p = &c;
+	const std::type_info &ti = typeid(*p);
+	std::cout<<ti.name()<<std::endl;
 }
