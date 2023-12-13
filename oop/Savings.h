@@ -6,4 +6,6 @@ private:
 public:
     Savings(const std::string &name, float balance, float rate);
     ~Savings();
+    float getInterestRate()const;
+    void AccumulateInteres();
 };

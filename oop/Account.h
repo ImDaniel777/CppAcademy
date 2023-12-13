@@ -1,6 +1,13 @@
 #pragma once
 #include <string>
 class Account{
+    std::string m_Name;
+    int m_AccNo;
+    static int s_ANGenerator;
+    
+protected:
+    float m_balance;
+
 public:
     Account(const std::string &name, float balance);
     ~Account();
@@ -12,9 +19,5 @@ public:
     void Withdraw(float amount);
     void Deposit(float amount);
     float GetInterestRate()const;
-private:
-    std::string m_Name;
-    float m_balance;
-    int m_AccNo;
-    static int s_ANGenerator;
+
 };
