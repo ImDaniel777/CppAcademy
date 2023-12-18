@@ -15,14 +15,16 @@ protected:
     float fuelCapacity;
 
     char chassisType;
-    char *VIN;
+    std::string  *_VIN = nullptr;
 
 public:
     Car();
-    Car(char *VIN);
+    Car(std::string  &VIN);
 
     virtual void accelerate() = 0;
     void getRealMileage() const;
     void setRealMileage(int value);
+    std::string  getVIN()const;
+    void setVIN(std::string value);
     virtual ~Car();
 };
