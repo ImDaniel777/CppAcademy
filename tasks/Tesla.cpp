@@ -10,7 +10,6 @@ Tesla::Tesla(_cons)
 std::unique_ptr<Tesla> &Tesla::getInstance()
 {
     static std::unique_ptr<Tesla> instance { Tesla::instanceFactory() };
-    // std::cout<<"Tesla instance "<<instance<<std::endl;
     return instance;
 }
 
@@ -19,7 +18,7 @@ std::unique_ptr<Tesla> Tesla::instanceFactory()
     return std::make_unique<Tesla>(_cons());
 }
 
-void Tesla::chargeBattery(int amount)
+void Tesla::chargeBattery(float amount)
 {
     std::cout<<"Tesla charging"<<std::endl;
 }

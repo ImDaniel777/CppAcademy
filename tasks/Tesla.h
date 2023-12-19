@@ -15,8 +15,11 @@ public:
     static std::unique_ptr<Tesla> instanceFactory();
 
     Tesla (Tesla &obj) = delete;
-    void operator=(const Tesla &obj) = delete;
-    void chargeBattery(int amount) override;
+    Tesla (Tesla &&obj) = delete;
+    Tesla &operator=(const Tesla &obj) = delete;
+    Tesla &operator=(Tesla &&obj) = delete;
+    
+    void chargeBattery(float amount) override;
     void accelerate() override;
     ~Tesla();
 };

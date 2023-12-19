@@ -3,7 +3,7 @@
 class ElectricCarInterface
 {
 public:
-    virtual void chargeBattery(int amount) = 0;
+    virtual void chargeBattery(float amount) = 0;
     virtual ~ElectricCarInterface(){};
 };
 
@@ -11,7 +11,7 @@ class HybridCarInterface
 {
 
 public:
-    virtual void addFuel(int amount) = 0;
+    virtual void addFuel(float amount) = 0;
     virtual ~HybridCarInterface(){};
 };
 
