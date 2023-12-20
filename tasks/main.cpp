@@ -21,8 +21,12 @@ AudiFamily createAudi(std::string  &VIN)
 }
 int main()
 {
-    Toyota t = Toyota();
-    
+    Tesla &tsl = Tesla::getInstance();
+    Tesla &tsl2 = Tesla::getInstance();
+    Tesla &tsl3 = Tesla::getInstance();
+    Tesla &tsl5 = Tesla::getInstance();
+    Tesla &tsl6 = Tesla::getInstance();
+    std::cout<<&tsl<<" "<<&tsl2<<std::endl;
     // std::unique_ptr<Tesla> &myTesla = Tesla::getInstance();
     // std::unique_ptr<Tesla> &mySecondTesla = Tesla::getInstance();
     return 0;

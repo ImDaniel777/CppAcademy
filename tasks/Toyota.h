@@ -8,4 +8,5 @@ private:
 public:
     void chargeBattery(float amount);
     void addFuel(float amout);
+    void accelerate();
 };

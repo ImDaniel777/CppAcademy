@@ -1,21 +1,16 @@
 #include <iostream>
 #include "Tesla.h"
 
-std::unique_ptr<Tesla> Tesla::instance{nullptr};
-Tesla::Tesla(_cons)
+int Tesla::n = 0;
+
+Tesla::Tesla()
 {
     std::cout<<"Tesla constructor"<<std::endl;
 }
-
-std::unique_ptr<Tesla> &Tesla::getInstance()
+Tesla &Tesla::getInstance()
 {
-    static std::unique_ptr<Tesla> instance { Tesla::instanceFactory() };
+    static Tesla instance;
     return instance;
-}
-
-std::unique_ptr<Tesla> Tesla::instanceFactory()
-{
-    return std::make_unique<Tesla>(_cons());
 }
 
 void Tesla::chargeBattery(float amount)
@@ -31,5 +26,5 @@ void Tesla::accelerate()
 Tesla::~Tesla()
 {
     std::cout<<"Tesla destructor"<<std::endl;
-    instance.release();
+    // instance.release();
 }
