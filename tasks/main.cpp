@@ -1,34 +1,33 @@
 #include <iostream>
-#include "Audi.h"
-#include "Tesla.h"
-#include "Toyota.h"
+#include "PetrolCar.h"
+#include "ElectricCar.h"
+#include "HybridCar.h"
 #include "Utils.h"
 /***
  * This class is used to demonstrate the cases when the compiler creates 
  * the copy constructor, move constructor, copy assignment, move assignment and destructor
 */
-class AudiFamily
+class PetrolCarFamily
 {
-    Audi audi;
+    PetrolCar car;
 public:
-    AudiFamily(std::string  &VIN) : audi(VIN){}
+    PetrolCarFamily(std::string  &VIN) : car(VIN){}
 };
 
-AudiFamily createAudi(std::string  &VIN)
+PetrolCarFamily createAudi(std::string  &VIN)
 {
-    AudiFamily a(VIN);
+    PetrolCarFamily a(VIN);
     return a;
 }
 int main()
 {
-    Tesla &tsl = Tesla::getInstance();
-    Tesla &tsl2 = Tesla::getInstance();
-    Tesla &tsl3 = Tesla::getInstance();
-    Tesla &tsl5 = Tesla::getInstance();
-    Tesla &tsl6 = Tesla::getInstance();
-    std::cout<<&tsl<<" "<<&tsl2<<std::endl;
-    // std::unique_ptr<Tesla> &myTesla = Tesla::getInstance();
-    // std::unique_ptr<Tesla> &mySecondTesla = Tesla::getInstance();
+
+    PetrolCar a;
+    a.addModification("stage_1");
+    a.addModification("stage_2");
+    a.printModifications();
+    auto a5{a};
+    // a5.printModifications();
     return 0;
 }
 /**
