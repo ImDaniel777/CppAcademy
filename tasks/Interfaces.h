@@ -15,9 +15,9 @@ public:
     virtual ~HybridCarInterface(){};
 };
 
-class MildHybridCarInterface : ElectricCarInterface, HybridCarInterface
+class PlugInHybridInterface : ElectricCarInterface, HybridCarInterface
 {
 
 public:
-    virtual ~MildHybridCarInterface(){};
+    virtual ~PlugInHybridInterface(){};
 };

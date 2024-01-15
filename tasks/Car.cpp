@@ -7,7 +7,7 @@
 
 Car::Car()
 {
-    // std::cout<<"Car constructor"<<std::endl;
+    std::cout<<"Car constructor"<<std::endl;
 }
 Car::Car(std::string  &VIN)
 {
@@ -66,5 +66,5 @@ void Car::setVIN(std::string value)
 }
 Car::~Car()
 {
-    // std::cout<<"Car destructor"<<std::endl;
+    std::cout<<"Car destructor"<<std::endl;
 }

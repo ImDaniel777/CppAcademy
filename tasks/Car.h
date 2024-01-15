@@ -8,9 +8,8 @@ private:
     int mileage = 0;
     int horsePower;
     float kwPower;
-protected:
-
     std::string chassisType;
+protected:
     std::string  *_VIN = nullptr;
 
 public:

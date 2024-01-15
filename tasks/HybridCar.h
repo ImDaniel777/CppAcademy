@@ -2,7 +2,7 @@
 #include "Car.h"
 #include <vector>
 
-class HybridCar : public Car, public MildHybridCarInterface
+class HybridCar : public Car, public PlugInHybridInterface
 {
 private:
     float battery;

@@ -22,12 +22,27 @@ PetrolCarFamily createAudi(std::string  &VIN)
 int main()
 {
 
-    PetrolCar a;
-    a.addModification("stage_1");
-    a.addModification("stage_2");
-    a.printModifications();
-    auto a5{a};
-    // a5.printModifications();
+    // std::unique_ptr<Car> car(new PetrolCar());
+
+    // ElectricCar &electricCar = ElectricCar::getInstance();
+    // ElectricCar &anotherElectricCar = ElectricCar::getInstance();
+
+    // std::cout<<&electricCar<<std::endl;
+    // std::cout<<&anotherElectricCar<<std::endl;
+
+    std::string vin = "1GEWAG7WEAG6AW";
+    PetrolCar petrolCar1{vin};
+
+    auto petrolCar2{petrolCar1}; /* Copy constructor */
+    petrolCar2 = petrolCar1; /* Copy assignment operator */
+
+    PetrolCar petrolCar3{vin};
+
+    auto petrolCar4{std::move(petrolCar3)}; /* Move constructor */
+    petrolCar4 = std::move(petrolCar3);
+
+    // int x = 10, y = 20;
+    // Utils::swap(x, y);
     return 0;
 }
 /**
