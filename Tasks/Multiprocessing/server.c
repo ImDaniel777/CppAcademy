@@ -8,6 +8,18 @@
 #include <netinet/in.h>
 #include <arpa/inet.h>
 
+void server_init(void);
+void handle_client(int client_socket) 
+{
+    const char *response = "HTTP/1.1 200 OK\r\n"
+                           "Content-Type: text/html\r\n\r\n"
+                           "<html><body><h1>Hello, this is a simple web server!</h1></body></html>";
+
+    // Send the HTTP response to the client
+    if (send(client_socket, response, strlen(response), 0) < 0) {
+        perror("ERROR writing to socket");
+    }
+}
 int main(int argc, char **argv)
 {
     if(argc < 2)
@@ -87,16 +99,34 @@ int main(int argc, char **argv)
         exit(0);
    }
    printf("server: got connection from %s port %d\n", inet_ntoa(client_addr.sin_addr), ntohs(client_addr.sin_port));
+    
+//    send(new_sock_fd, "Hello, world!\n", 13, 0);
 
-   send(new_sock_fd, "Hello, world!\n", 13, 0);
-
-   memset(buffer, 0, sizeof(buffer) / sizeof(buffer[0]));
+    memset(buffer, 0, sizeof(buffer) / sizeof(buffer[0]));
 
     n = read(new_sock_fd, buffer, 255);
-    if(n < 0) perror("ERROR reading from socket");
-    printf("Here is the message: %s\n", buffer);
-
+    if(n < 0)
+    {
+        perror("ERROR reading from socket");
+    }
+    if(n > 0)
+    {
+        FILE *file = fopen("server_output.txt", "w");
+        if(file == NULL)
+        {
+            perror("Error opening file");
+            exit(1);
+        }
+        fprintf(file,"Client request: %s\n", buffer);
+        fclose(file);
+    }
+   
     close(new_sock_fd);
     close(sock_fd);
     return 0;
+}
+
+void server_init(void)
+{
+
 }

@@ -43,21 +43,23 @@ int main(int argc, char **argv)
         exit(0);
     }
 
-    printf("Please enter the message..");
-    memset(buffer, 0, 256);
-    fgets(buffer, 255, stdin);
-
-    if(write(sock_fd, buffer, strlen(buffer)) < 0)
+    while(1)
     {
-        perror("ERROR writting to socket");
-    }
-    if(read(sock_fd, buffer, 255) < 0)
-    {
-        perror("ERROR reading from socket");
-    }
+        printf("Please enter the message..");
+        memset(buffer, 0, 256);
+        fgets(buffer, 255, stdin);
 
+        if(write(sock_fd, buffer, strlen(buffer)) < 0)
+        {
+            perror("ERROR writting to socket");
+        }
+        if(read(sock_fd, buffer, 255) < 0)
+        {
+            perror("ERROR reading from socket");
+        }
 
-    printf("%s\n", buffer);
+        printf("%s\n", buffer);
+    }
     close(sock_fd);
     return 0;
 }
