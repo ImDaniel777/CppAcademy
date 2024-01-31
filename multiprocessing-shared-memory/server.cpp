@@ -20,6 +20,7 @@ void* create_shared_memory(size_t size) {
 
 int main()
 {
+#if SHMGET_METHOD == 1
     // ftok to generate unique key
     key_t key = ftok(KEY_STRING, 65);
 
@@ -34,5 +35,31 @@ int main()
   
     // detach from shared memory
     shmdt(str);
+#else
+    char *shmem = (char*)create_shared_memory(MESSAGE_SIZE);
+
+    if(shmem == MAP_FAILED)
+    {
+        perror("Error mapping the file into memory");
+        exit(EXIT_FAILURE);
+    }
+
+    while(1)
+    {
+        printf("Server waiting for a message from the client...\n");
+        while(shmem[0] == '\0')
+        {
+
+        }
+        // Process the message
+        if(shmem[0] == '0')
+        {
+            break;
+        }
+        printf("Server received message: %s\n", shmem);
+    }
+    munmap(shmem, 128);
+
+#endif
     return 0;
 }
