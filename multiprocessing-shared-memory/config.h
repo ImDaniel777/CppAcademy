@@ -7,4 +7,10 @@
 #define SHMGET_METHOD 1
 #define MMAP_METHOD !SHMGET_METHOD
 
+
+struct SharedMemoryBlock
+{
+    char ip_list[10][16];
+} sharedMemoryBlock;
+
 #endif

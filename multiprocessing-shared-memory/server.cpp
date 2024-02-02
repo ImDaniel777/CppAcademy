@@ -7,7 +7,6 @@
 #include <fstream>
 #include <cstring>
 
-
 void* create_shared_memory(size_t size) {
   // Our memory buffer will be readable and writable:
   int protection = PROT_READ | PROT_WRITE;
@@ -25,15 +24,14 @@ void* create_shared_memory(size_t size) {
 
 int main()
 {
-    std::ofstream ServerFile("serverOut.txt");
+    std::ofstream ServerFile("../multiprocessing-shared-memory/serverOut.txt");
 
 #if SHMGET_METHOD == 1
     // ftok to generate unique key
     key_t key = ftok(KEY_STRING, 65);
 
     // shmget returns an identifier in shmid
-    size_t size = sizeof(int) * 10;
-    int shmid = shmget(key, size, 0666 | IPC_CREAT);
+    int shmid = shmget(key, sizeof(SharedMemoryBlock), 0666 | IPC_CREAT);
     if(shmid == -1)
     {
         std::cerr << "Error getting shared memory id: " << strerror(errno) << std::endl;
@@ -41,24 +39,31 @@ int main()
     }
     printf("Created shared memory with id=%d\n", shmid);
     // shmat to attach to shared memory
-    int *data = (int*)shmat(shmid, (void*)0, 0);
-    data[0] = 1;
-    int index, value;
+    SharedMemoryBlock *sharedMemory = (SharedMemoryBlock*)shmat(shmid, (void*)0, 0);
+    std::strcpy(sharedMemory->ip_list[0], "0.0.0.0");
+
+    int index;
+    char ip[16];
     while(1)
     {
-        std::cout<<"Choose an index(9 is maximum) and a value to be inserted at that index\n";
-        std::cin>>index>>value;
+        std::cout<<"Choose an index(9 is maximum) and an ip to be inserted at that index\n";
+        std::cin>>index>>ip;
+        if(strcmp(ip, "0") == 0)
+        {
+            break;
+        }
         if(index > 9)
         {
-            continue;
+            break;
         }
         else
         {
-            data[index] = value;
+            std::strcpy(sharedMemory->ip_list[0], ip);
+
         }
     }
     // detach from shared memory
-    shmdt(data);
+    shmdt(sharedMemory);
 
     shmctl(shmid, IPC_RMID, NULL);
 #else
