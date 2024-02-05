@@ -10,7 +10,6 @@
 
 int main()
 {
-#if SHMGET_METHOD == 1
     // ftok to generate unique key
     key_t key = ftok(KEY_STRING, 65);
     
@@ -25,6 +24,12 @@ int main()
     printf("Created shared memory with id=%d\n", shmid);
 
     std::ofstream ClientFile("../multiprocessing-shared-memory/clientOut.txt");
+    if(ClientFile.is_open() == 0)
+    {
+        perror("Error opening file");
+        exit(EXIT_FAILURE);
+    }
+    ClientFile << "Hello" <<'\n';
  
     // shmat to attach to shared memory
     SharedMemoryBlock* sharedMemory  = (SharedMemoryBlock*)shmat(shmid, nullptr, 0);
@@ -39,18 +44,15 @@ int main()
         for(int i = 0; i < 10; i++)
         {
             std::cout << sharedMemory->ip_list[i]<< ' ';
+            ClientFile << sharedMemory->ip_list[i]<<' ';
         }
         std::cout<<'\n';
+        ClientFile << '\n';
     }
 
     ClientFile.close();
 
      // detach from shared memory
     shmdt(sharedMemory);
-#else
-    char *shared_memory = (char*)mmap(NULL, MESSAGE_SIZE, PROT_READ | PROT_WRITE, MAP_SHARED, -1, 0);
-    snprintf(shared_memory, MESSAGE_SIZE, "Data from client");
-
-#endif  
     return 0;
 }

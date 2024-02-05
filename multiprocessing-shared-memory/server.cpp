@@ -26,7 +26,6 @@ int main()
 {
     std::ofstream ServerFile("../multiprocessing-shared-memory/serverOut.txt");
 
-#if SHMGET_METHOD == 1
     // ftok to generate unique key
     key_t key = ftok(KEY_STRING, 65);
 
@@ -66,23 +65,5 @@ int main()
     shmdt(sharedMemory);
 
     shmctl(shmid, IPC_RMID, NULL);
-#else
-    char *shmem = (char*)create_shared_memory(MESSAGE_SIZE);
-
-    if(shmem == MAP_FAILED)
-    {
-        perror("Error mapping into memory");
-        exit(EXIT_FAILURE);
-    }
-
-    printf("Server waiting for a message from the client...\n");
-    while(shmem[0] == '\0')
-    {
-
-    }
-    printf("Server received message:\n%s", shmem);
-    munmap(shmem, MESSAGE_SIZE);
-
-#endif
     return 0;
 }
