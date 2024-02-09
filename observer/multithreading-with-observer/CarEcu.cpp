@@ -21,10 +21,30 @@ void CarEcu::notify()
 
 void CarEcu::setSpeed(float value)
 {
+    if(value == data.speed)
+    {
+        return;
+    }
     data.speed = value;
+    CarEcu::notify();
 }
 
 void CarEcu::setThrottle(float value)
 {
+    if(value == data.throttle)
+    {
+        return;
+    }
     data.throttle = value;
+    CarEcu::notify();
+}
+
+float CarEcu::getSpeed()const
+{
+    return data.speed;
+}
+
+float CarEcu::getThrottle()const
+{
+    return data.throttle;
 }
