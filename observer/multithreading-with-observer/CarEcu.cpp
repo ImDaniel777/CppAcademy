@@ -18,7 +18,13 @@ void CarEcu::notify()
         observer->update(data);
     }
 }
-
+CarEcu::~CarEcu()
+{
+    for(auto *observer: observers)
+    {
+        CarEcu::unsubscribe(observer);
+    }
+}
 void CarEcu::setSpeed(float value)
 {
     if(value == data.speed)
