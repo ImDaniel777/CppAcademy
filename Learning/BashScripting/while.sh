@@ -6,4 +6,3 @@ do
     ((index++))
 done
 
-line_num=1
