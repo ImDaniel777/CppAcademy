@@ -1,7 +1,7 @@
-#!/bin/bash
-projectPath=/home/projectx/accademyprojects/cpp/oop/multiprocessing-shared-memory/
-server=$projectPath"server"
-client=$projectPath"client"
+#!/bin/bash -x
+projectPath=$(pwd)
+server=$projectPath"/server"
+client=$projectPath"/client"
 compile_app(){
     g++ $server.cpp -o $server
     g++ $client.cpp -o $client
@@ -14,8 +14,8 @@ start_process() {
 # echo Do you want to start the client/server app? y/n
 # read input
 # if [[ $input == 'y' ]]; then
-echo Starting app..
-compile_app 
+echo Script must be in the application folder
+compile_app
 start_process "$server"
 start_process "$client"
 # elif [[ $input == 'n' ]]; then
