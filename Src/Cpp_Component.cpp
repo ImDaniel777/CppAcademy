@@ -37,3 +37,8 @@ void Database::printAllRecords()
       std::cout << "ID: " << record._id << ", Name: " << record._name << std::endl;
   }
 }
+
+int Database::getNumberOfRecords()
+{
+  return records.size();
+}

@@ -17,6 +17,7 @@ public:
     void removeRecord(int id);
     Record *searchRecordById(int id);
     void printAllRecords();
+    int getNumberOfRecords();
 
     Database &operator=(const Database &obj) = delete;
     Database(const Database &obj) = delete;
