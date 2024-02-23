@@ -1,0 +1,24 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/projectx/accademyprojects/cpp/CppAcademy/Src/Cpp_Component.cpp
+iostream
+-
+Cpp_Component.hpp
+/home/projectx/accademyprojects/cpp/CppAcademy/Src/Cpp_Component.hpp
+algorithm
+-
+string
+-
+
+/home/projectx/accademyprojects/cpp/CppAcademy/Src/Cpp_Component.hpp
+vector
+-
+iostream
+-
+

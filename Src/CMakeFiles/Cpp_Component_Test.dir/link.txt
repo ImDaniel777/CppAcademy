@@ -1,0 +1,1 @@
+/usr/bin/c++   -g --coverage -g --coverage   CMakeFiles/Cpp_Component_Test.dir/Cpp_Component_Test.cpp.o  -o bin/Cpp_Component_Test  -Wl,-rpath,/home/projectx/accademyprojects/cpp/CppAcademy/Src/lib lib/libnr_lib.so /usr/lib/x86_64-linux-gnu/libboost_unit_test_framework.so.1.71.0 

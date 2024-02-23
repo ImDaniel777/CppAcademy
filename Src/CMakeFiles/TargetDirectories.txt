@@ -1,0 +1,4 @@
+/home/projectx/accademyprojects/cpp/CppAcademy/Src/CMakeFiles/rebuild_cache.dir
+/home/projectx/accademyprojects/cpp/CppAcademy/Src/CMakeFiles/edit_cache.dir
+/home/projectx/accademyprojects/cpp/CppAcademy/Src/CMakeFiles/Cpp_Component_Test.dir
+/home/projectx/accademyprojects/cpp/CppAcademy/Src/CMakeFiles/nr_lib.dir

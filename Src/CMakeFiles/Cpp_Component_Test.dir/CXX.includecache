@@ -1,0 +1,22 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/projectx/accademyprojects/cpp/CppAcademy/Src/Cpp_Component.hpp
+vector
+-
+iostream
+-
+
+/home/projectx/accademyprojects/cpp/CppAcademy/Src/Cpp_Component_Test.cpp
+boost/test/unit_test.hpp
+-
+boost/test/included/unit_test.hpp
+-
+Cpp_Component.hpp
+/home/projectx/accademyprojects/cpp/CppAcademy/Src/Cpp_Component.hpp
+

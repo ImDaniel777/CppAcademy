@@ -1,0 +1,1 @@
+/usr/bin/c++ -fPIC  -g --coverage -g --coverage  -shared -Wl,-soname,libnr_lib.so -o lib/libnr_lib.so CMakeFiles/nr_lib.dir/Cpp_Component.cpp.o 
