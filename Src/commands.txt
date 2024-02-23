@@ -1,0 +1,15 @@
+1. Code coverage compilation:
+    g++ -fPIC -fprofile-arcs -ftest-coverage Cpp_Component.cpp Cpp_Component_Test.cpp -o test
+    => gcno files generated
+
+2. Run test file
+    ./test
+    => gcda file generated
+
+3. Run commands to generate code coverage raport:
+    lcov --capture --directory . --output-file ./coverage.info --no-external
+
+    lcov --remove coverage.info -o coverage_filtered.info \
+        '/usr/*'
+
+    genhtml --demangle-cpp coverage_filtered.info --output-directory lcov

@@ -16,6 +16,11 @@ void Database::addRecord(int id, const std::string &name)
   records.emplace_back(id, name);
 }
 
+void Database::addRecord(Record &record)
+{
+  records.emplace_back(record);
+}
+
 void Database::removeRecord(int id)
 {
   records.erase(std::remove_if(records.begin(), records.end(),[id](const Record &record){return record._id == id;}), records.end());
@@ -41,4 +46,9 @@ void Database::printAllRecords()
 int Database::getNumberOfRecords()
 {
   return records.size();
+}
+
+void Database::emptyDatabase()
+{
+  records.clear();
 }
