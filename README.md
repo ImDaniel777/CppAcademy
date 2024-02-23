@@ -1,5 +1,4 @@
 # Daily report of activity
----
 
 | Day        | Topic           | Details  |
 | ------------- |:-------------:| -----:|
