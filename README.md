@@ -6,4 +6,6 @@
 | Monday 26.02.2024       | Documented on CMake and TDD      |   Followed Udemy course for CMake + internet documentation |
 | Tuesday 27.02.2024  | Documented on CMake and TDD      |  ----------  |
 | Wednesday 28.02.2024  | Documented on AOSP      |  AOSP Udemy course + internet documentation  |
+| Thursday 29.02.2024  | Documented on AOSP      |  ----------  |
+
 ---
