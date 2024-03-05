@@ -8,5 +8,7 @@
 | Wednesday 28.02.2024  | Documented on AOSP      |  AOSP Udemy course + internet documentation  |
 | Thursday 29.02.2024  | Documented on AOSP      |  ----------  |
 | Friday 01.03.2024  | Documented on AOSP      |  ----------  |
+| Monday 04.03.2024  | Documented on AUTOSAR      |  Udemy course + randstad documentation + official documentation  |
+| Tuesday 05.03.2024  | Documented on AUTOSAR      |  ----------  |
 
 ---
