@@ -1,8 +1,8 @@
 #include <iostream>
-#include "PetrolCar.h"
-#include "ElectricCar.h"
-#include "HybridCar.h"
-#include "Utils.h"
+#include "PetrolCar/PetrolCar.h"
+#include "ElectricCar/ElectricCar.h"
+#include "HybridCar/HybridCar.h"
+#include "Utils/Utils.h"
 /***
  * This class is used to demonstrate the cases when the compiler creates 
  * the copy constructor, move constructor, copy assignment, move assignment and destructor
