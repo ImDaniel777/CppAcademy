@@ -10,5 +10,6 @@
 | Friday 01.03.2024  | Documented on AOSP      |  ----------  |
 | Monday 04.03.2024  | Documented on AUTOSAR      |  Udemy course + randstad documentation + official documentation  |
 | Tuesday 05.03.2024  | Documented on AUTOSAR      |  ----------  |
+| Wednesday 06.03.2024  | Documented on CMake      |  Read CMake documentation - Worked on task 10: Created build system using cmake for the first task (OOP - class hierarchy) - created PR for the cmake task |
 
 ---
