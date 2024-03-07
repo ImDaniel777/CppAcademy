@@ -11,5 +11,6 @@
 | Monday 04.03.2024  | Documented on AUTOSAR      |  Udemy course + randstad documentation + official documentation  |
 | Tuesday 05.03.2024  | Documented on AUTOSAR      |  ----------  |
 | Wednesday 06.03.2024  | Worked on task10: CMake      |  Read CMake documentation - Worked on task 10: Created build system using cmake for the first task (OOP - class hierarchy) - created PR for the cmake task |
+| Thursday 07.03.2024  | Documented on autosar + design patterns + start implementation for Strategy Pattern      |  worked on branch strategy-pattern -> apply strategy pattern in the context of autosar MemIf  |
 
 ---
