@@ -3,7 +3,9 @@
 class MemoryContext
 {
 public:
-    void setContext(MemoryInterface *memory);
+    MemoryContext(){}
+    MemoryContext(MemoryInterface *context);
+    void setContext(MemoryInterface *context);
     void allocateMemory();
     void read();
     void write();
