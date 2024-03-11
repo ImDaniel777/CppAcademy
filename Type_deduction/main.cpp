@@ -1,4 +1,5 @@
 #include <iostream>
+#include <vector>
 /* PRIOR KNOWLEDGE NEEDED: LVALUES, RVALUES AND REFERENCES */
 
 /**
@@ -86,6 +87,67 @@ auto br1 = {1, 2, 3}; /* This works, type is std::initializer_list<int> */
 auto br2 = {1}; /* Also std::initializer_list<int>*/
 auto br3 {1}; /* int */
 //auto br3 {1, 2, 3}; /* error in c++17 */
+
+/**
+ * @brief Decltype type deduction
+ * 
+ * Decltype works on expressions, auto works on types.
+ * decltype(some expr of type T) = T&
+ * 
+ * Names are lvalues, but decltype(name) rule beats decltype(lvalue) rule.
+ */
+decltype (x); /* = int, x is lvalue expression, but also name => name rule prevails */
+decltype ((x)); /* = int& (x) is lvalue expression, but not a name*/
+
+/**
+ * @brief Function return type deduction
+ * 
+ * For auto use template(not auto) rules!
+ *   => No type deduced for braced initializers
+ * For decltype(auto) use delcltype rules!
+ * 
+ * Auto return type gives a copy
+ * decltype(auto) gives reference
+ */
+auto lookUpValue(char information)
+{
+    static std::vector<int> v{1,2,3};
+    int idx = 0; //computed
+    return v[idx];
+    /*
+        Returns a new copy, modifying it wont modify the value from the vector
+        decltype(auto) would return int& which would allow to modify the value from vector
+        lookUpValue(information) = 5; should not compile!
+    */
+}
+
+decltype(auto) authorizeAndIndex(std::vector<int> &x, int idx)
+{
+    //authorize();
+    return x[idx];
+    /*
+        This returns int& which allows to be modified (desired behaviour)
+        auto would return int, a new copy and would modify that copy, not the vector.
+        authorizeAndIndex(v, 10) = 5; should compile!
+    */
+}
+/* DECLTYPE(AUTO) IS SENSITIVE TO FUNCTION IMPLEMENTATION 
+
+    RULES:
+        1. Use auto when a reference type would never be correct. (reference is not needed)
+        2. Use decltype(auto) only if a reference type would be correct.
+            => "Perfect returning"
+*/
+
+decltype(auto) lookUp(char context)
+{
+    static std::vector<int> v{1,2,3};
+    int idx = 0;
+    auto ret = v[idx]; /* This creates a new object of type int */
+
+    return ret; /* This returns an int (new object) */
+    // return (ret); /* This returns an int& (reference to the local variable ret) because (ret) is an expression */
+}
 
 int main()
 {
