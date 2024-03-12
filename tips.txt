@@ -1,0 +1,28 @@
+Dont use auto with vector<bool>. Each boolean value is represented by a proxy object in order to achieve space optimization (multiple bits share the same byte).
+If a function conceptually returns some type T1, but instead it returns T2, T2 could be a proxy for T1.
+As a trick, use auto with specific type casting:
+
+auto b1 = static_cast<bool>(makeBoolVec()[3])
+
+Parameters are always lvalues!
+
+Use move on the last occurence of rvalue reference
+Use forward on the last occurence of universal reference
+
+It's better not to return references!
+
+If we have a local variable of the same type as the return type, and we return exactly that variable, it will be created in the same place as the return.
+This does not apply for function return value (function 2)  
+    => copy elision
+int test()
+{
+    int x;
+    return x; => will be optimized, neither move nor copy operation
+}
+
+function with worse code generation..
+int test()
+{
+    int x;
+    return std::move(x); => will NOT be optimized, will have a move operation
+}
