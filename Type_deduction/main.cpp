@@ -96,8 +96,8 @@ auto br3 {1}; /* int */
  * 
  * Names are lvalues, but decltype(name) rule beats decltype(lvalue) rule.
  */
-decltype (x); /* = int, x is lvalue expression, but also name => name rule prevails */
-decltype ((x)); /* = int& (x) is lvalue expression, but not a name*/
+// decltype (x); /* = int, x is lvalue expression, but also name => name rule prevails */
+// decltype ((x)); /* = int& (x) is lvalue expression, but not a name*/
 
 /**
  * @brief Function return type deduction

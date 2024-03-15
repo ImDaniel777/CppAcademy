@@ -1,5 +1,7 @@
+
 #include <iostream>
 #include <functional>
+#include "../Integer.h"
 /**
  * @brief Universal and rvalue references
  * 
@@ -35,16 +37,16 @@
  *      push_back vs emplace_back, last one directly creates object in the vector, uses URefs
  * 
  */
-void test(int&& x); // rvalue reference
-int&& x = 5;    // rvalue reference
-auto&& y = 5; // not rvalue reference
-template <typename T>
-void test(std::vector<T>&& vec); // rvalue reference
-template <typename T>
-void test(T&& arg); // not rvalue reference
+// void test(int&& x); // rvalue reference
+// int&& x = 5;    // rvalue reference
+// auto&& y = 5; // not rvalue reference
+// template <typename T>
+// void test(std::vector<T>&& vec); // rvalue reference
+// template <typename T>
+// void test(T&& arg); // not rvalue reference
 
-template <typename T>
-void test(const T&& arg); // Rref, not Uref, const is not deduced
+// template <typename T>
+// void test(const T&& arg); // Rref, not Uref, const is not deduced
 
 
 /**
@@ -61,26 +63,22 @@ void test(const T&& arg); // Rref, not Uref, const is not deduced
  */
 
 /* std::move implementation */
-template <typename T>
+// template <typename T>
 // typename remove_reference<T>::type&& before c++14
-decltype(auto) move(T&& param)
-{
-    using ReturnType = remove_reference_t<T>&&; //c++14
-    return static_cast<ReturnType>(param); // just a cast
-}
-/* std::forward => if we pass lvalue reference - do nothing, else, cast to rvalue*/
-void process(int&& val)
-{
-    std::cout<<"got rvalue reference\n";
-}
-void process(int& val)
-{
-    std::cout<<"got lvalue reference\n";
-}
-// void process(const int& val)
+// decltype(auto) move(T&& param)
 // {
-//     std::cout<<"got const lvalue reference\n";
+//     using ReturnType = remove_reference_t<T>&&; //c++14
+//     return static_cast<ReturnType>(param); // just a cast
 // }
+/* std::forward => if we pass lvalue reference - do nothing, else, cast to rvalue*/
+struct Person
+{
+    Integer _id;
+    std::string _name;
+    // Person(Integer &id, std::string& name) : _id(id), _name(name){}
+    template <typename T1, typename T2>
+    Person(T1&& id, T2&& name) : _id(std::forward<Integer>(id)), _name(name) {}
+};
 
 template <typename T>
 void func(T&& arg)
@@ -90,7 +88,11 @@ void func(T&& arg)
 int main()
 {
     int x, a, b;
-    std::function<int(int)> ret = [a,b](int x){ return x*x +a/2 + b;}; // closure could be on heap
+    // std::function<int(int)> ret = [a,b](int x){ return x*x +a/2 + b;}; // closure could be on heap
     // or
-    auto rett = [a,b](int x){ return x*x +a/2 + b;}; // closure not on heap
+    // auto rett = [a,b](int x){ return x*x +a/2 + b;}; // closure not on heap
+
+    Integer n(10);
+    Person pers(std::move(n), std::string("DAniel"));
+
 }
