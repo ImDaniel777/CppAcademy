@@ -1,0 +1,25 @@
+Generative-ai history
+
+1. Rule-based systems
+    Parsing and part-of-speech tagging  
+2. Statistical NLP 
+    Introduction of statistical methods for natural language processing
+    Data driven approach, probability and statistics.
+3.Machine learning      
+    Neural networks     
+4. Embeddings
+    Word2Vec.
+5. Transformers
+    Encoder -> Decoder
+    Two-phase training:
+        Pre-training
+        Fine tuning
+
+Google's BERT - Bidirectional encoder representations from Transformers 
+GPT - 
+    Stacked decoders
+    Unidirectional
+
+T5 - Text to text transfer Transformer
+    -Combines BERTS's objective to predict missing word with valuable context and
+              GPT's autoregressive generation for fluent, multi-word output.
