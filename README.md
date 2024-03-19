@@ -17,5 +17,9 @@
 | Tuesday 12.03.2024 | Effective modern c++ | Universal references, Move, forward, proxy types and  Code review for msmarandescu |
 | Wednesday 13.03.2024 | Effective modern c++ + Generative AI | Lambda functions and introduction course about generative ai  |
 | Thursday 14.03.2024 | Effective modern c++ + Generative AI | Finish with topics from book, start udemy course Python mastery with tabnine |
+| Friday 15.03.2024 | Generative AI + AOSP Documentation| Tabnine python course, Transformers and Generative AI course |
+| Monday 18.03.2024 | Generative AI + AOSP Documentation | ------------- |
+
+
 
 ---
