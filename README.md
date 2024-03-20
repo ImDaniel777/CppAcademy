@@ -19,6 +19,10 @@
 | Thursday 14.03.2024 | Effective modern c++ + Generative AI | Finish with topics from book, start udemy course Python mastery with tabnine |
 | Friday 15.03.2024 | Generative AI + AOSP Documentation| Tabnine python course, Transformers and Generative AI course |
 | Monday 18.03.2024 | Generative AI + AOSP Documentation | ------------- |
+| Tuesday 19.03.2024 | AOSP Documentation | Go through the android source code using android code search |
+| Wednesday 20.03.2024 | C++ Design Patterns | Visitor design pattern |
+
+
 
 
 
